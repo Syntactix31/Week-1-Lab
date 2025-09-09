@@ -7,7 +7,7 @@
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 20;
+  line-height: 20px;
   color: #df841f;
   background-color: #f5fedc;
   padding: 20px;
@@ -15,7 +15,7 @@ body {
 
 /* Header styles */
 header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #7f93eb 0%, #764ba2 100%);
   color: white;
   padding: 2rem;
   border-radius: 8px;
@@ -27,11 +27,13 @@ header {
 header h1 {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
-  font-weight: 300;
-  color: #df841f
+  font-weight: 625;
+  color: #ffffff;
+  line-height: 1.5;
 }
 
 header p {
+  margin-top: 1.5rem;
   font-size: 1.1rem;
   opacity: 0.9;
 }
@@ -82,7 +84,7 @@ section p {
 }
 
 /* List styles */
-ul {
+.output ul {
   list-style: none;
   padding: 0;
 }
@@ -168,3 +170,11 @@ code {
   border-radius: 4px;
   margin-top: 0.5rem;
 }
+
+/* Tryna figure out what to do with the lists formatting before seeing the script output*/
+/* .empty-list {
+  color: #6c757d;
+  font-style: italic;
+  text-align: center;
+  padding: 1rem;
+} */
