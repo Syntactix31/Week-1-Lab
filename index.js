@@ -29,7 +29,7 @@ const broken = [
 
 // Testing if it works
 namesList(broken, errorHandling);
-ageList(broken, 25);
+// ageList(broken, 25);
 
 // 1. Print out the names of each character in the console, then render them in the HTML list with id "names-list"
 users.forEach(
@@ -138,7 +138,7 @@ function ageList(arrayName, threshold) {
       errorInfo.textContent = errorMessage;
       errorElement.append(errorInfo);
     } else {
-      if (0 < object.age < threshold) {
+      if (object.age < threshold && object.age >= 1) {
         const item = document.createElement("li");
         item.textContent = object.name;
         ageFilter.append(item);
