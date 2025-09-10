@@ -108,7 +108,7 @@ ul li:last-child {
 }
 
 ul#error-message li,
-ul#broken-array-errors li, ul#error-handling-list li, ul#broken-array-list li {
+ul#broken-array-errors li, ul#error-handling-list li#failed-objects, ul#broken-array-list li#failed-objects {
   background: rgb(234, 251, 255);
   margin-bottom: 0.5rem;
   padding: 0.75rem;
@@ -182,4 +182,10 @@ code {
   border-radius: 4px;
   margin-top: 0.5rem;
 }
+
+li #passed-objects {
+  border-left: 3px solid #28a745;
+}
+
+
 
