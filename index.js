@@ -27,21 +27,18 @@ const broken = [
   { id: 6, name: "", age: 67 },
 ];
 
-//      needs fixing
+namesList(broken, errorHandling, errorElement);
 
 
 // Testing if it works (Exercise 6)
 const brokenList = document.getElementById("broken-array-list");
 const brokenErrors = document.getElementById("broken-array-errors");
 
-// namesList(broken, brokenList, brokenErrors);
-
-namesList(broken, errorElement, errorHandling);
-// ageList(broken, 70, brokenList);
+ageList(broken, 70, brokenList, brokenErrors);
 
 
 
-
+const ageFilter = document.getElementById("age-filter-list");
 
 
 // 1. Print out the names of each character in the console, then render them in the HTML list with id "names-list"
@@ -94,10 +91,12 @@ function namesList(arrayName, listElement, errorDiv = errorElement) {
       let errorMessage = `Error!!!!!! \n The object: ${JSON.stringify(object, null, 2)} \n is missing a "name" property!!!!` 
       console.error(errorMessage); 
       const errorInfo = document.createElement("li");
+      errorInfo.id = 'failed-objects';
       errorInfo.textContent = errorMessage;
-      errorDiv.append(errorInfo);
+      listElement.append(errorInfo);
     } else {
     const item = document.createElement("li");
+    item.id = 'passed-objects';
     item.textContent = object.name;
     listElement.append(item);
     }
@@ -118,8 +117,8 @@ const DW = [
   {name: "Rose Tyler", age: 19 },
 ];
 
-let functionList = document.getElementById("function-list")
-namesList(DW, functionList);
+let functionList1 = document.getElementById("function-list");
+namesList(DW, functionList1);
 
 
 
@@ -137,10 +136,9 @@ namesList(DW, functionList);
 }
 );*/
 
+function ageList(arrayName, threshold, listElement = ageFilter, errorDiv = errorElement) {
 
-function ageList(arrayName, threshold, errorDiv = errorElement) {
-  const ageFilter = document.getElementById("age-filter-list");
-  ageFilter.innerHTML = "";
+  listElement.innerHTML = "";
   errorDiv.innerHTML = "";
 
   arrayName.forEach(object => {
@@ -150,12 +148,14 @@ function ageList(arrayName, threshold, errorDiv = errorElement) {
       console.error(errorMessage); 
       const errorInfo = document.createElement("li");
       errorInfo.textContent = errorMessage;
-      errorDiv.append(errorInfo);
+      errorInfo.id = 'failed-objects';
+      listElement.append(errorInfo);
     } else {
       if (object.age < threshold && object.age >= 1) {
         const item = document.createElement("li");
+        item.id = 'passed-objects';
         item.textContent = object.name;
-        ageFilter.append(item);
+        listElement.append(item);
       }  
     }
 
@@ -164,7 +164,7 @@ function ageList(arrayName, threshold, errorDiv = errorElement) {
 
 }
 
-let functionList2 = document.getElementById("function-list")
+let functionList2 = document.getElementById("function-list");
 ageList(DW, 30);
 
 
@@ -178,23 +178,3 @@ ageList(DW, 30);
 
 
 // 6. Test your error handling by creating a second array that's intentionally broken (missing name properties) and passing it to your functions. Verify that your error handling works correctly and displays errors in the div with id "broken-array-errors"
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*  NOTES: ageList prints out the errors as list elements but doesn't show the ones that successfully passed
-
-nameslist does not show the objects that don't have a name
-
-error messages working good in console
-
-*/
