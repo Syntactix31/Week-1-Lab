@@ -36,8 +36,8 @@ const brokenErrors = document.getElementById("broken-array-errors");
 
 // namesList(broken, brokenList, brokenErrors);
 
-namesList(broken, errorHandling);
-ageList(broken, 66, brokenList);
+namesList(broken, errorElement, errorHandling);
+// ageList(broken, 70, brokenList);
 
 
 
