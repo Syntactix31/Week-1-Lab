@@ -37,7 +37,7 @@ const brokenErrors = document.getElementById("broken-array-errors");
 // namesList(broken, brokenList, brokenErrors);
 
 namesList(broken, errorHandling);
-// ageList(broken, 25);
+ageList(broken, 66, brokenList);
 
 
 
@@ -85,17 +85,17 @@ users.forEach(users => {
 
 // 3. Create a reusable function that takes any array and uses logic to render a list of character names in the HTML. Use this function to populate the list with id "function-list"
 
-function namesList(arrayName, listElement) {
+function namesList(arrayName, listElement, errorDiv = errorElement) {
   listElement.innerHTML = "";
-  errorElement.innerHTML = "";
+  errorDiv.innerHTML = "";
 
   arrayName.forEach(object => {
     if (!object.name) {
       let errorMessage = `Error!!!!!! \n The object: ${JSON.stringify(object, null, 2)} \n is missing a "name" property!!!!` 
       console.error(errorMessage); 
-      const errorInfo = document.createElement("p");
+      const errorInfo = document.createElement("li");
       errorInfo.textContent = errorMessage;
-      errorElement.append(errorInfo);
+      errorDiv.append(errorInfo);
     } else {
     const item = document.createElement("li");
     item.textContent = object.name;
@@ -138,19 +138,19 @@ namesList(DW, functionList);
 );*/
 
 
-function ageList(arrayName, threshold) {
-  let ageFilter = document.getElementById("age-filter-list");
+function ageList(arrayName, threshold, errorDiv = errorElement) {
+  const ageFilter = document.getElementById("age-filter-list");
   ageFilter.innerHTML = "";
-  errorElement.innerHTML = "";
+  errorDiv.innerHTML = "";
 
   arrayName.forEach(object => {
     
     if (!object.name) {
       let errorMessage = `Error!!!!!! \n The object: ${JSON.stringify(object, null, 2)} \n is missing a "name" property!!!!` 
       console.error(errorMessage); 
-      const errorInfo = document.createElement("p");
+      const errorInfo = document.createElement("li");
       errorInfo.textContent = errorMessage;
-      errorElement.append(errorInfo);
+      errorDiv.append(errorInfo);
     } else {
       if (object.age < threshold && object.age >= 1) {
         const item = document.createElement("li");
@@ -187,3 +187,14 @@ ageList(DW, 30);
 
 
 
+
+
+
+
+/*  NOTES: ageList prints out the errors as list elements but doesn't show the ones that successfully passed
+
+nameslist does not show the objects that don't have a name
+
+error messages working good in console
+
+*/
