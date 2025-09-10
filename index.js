@@ -17,11 +17,43 @@ const users = [
 // broken test data for exercise 6
 
 // 1. Print out the names of each character in the console, then render them in the HTML list with id "names-list"
+// users.forEach(
+//   users => {
+//   console.log(users.name)
+// }
+// );
 
+// let names = document.getElementById("names-list");
 
+// users.forEach(user => {
+//   let listItem = document.createElement("li");
+//   listItem.textContent = user.name;
+//   names.append(listItem);
+// });
 
 
 // 2. Print out the names of characters whose age is less than 40 in the console, then render them in the HTML list with id "young-characters-list"
+
+users.forEach(
+  users => {
+  if (users.age < 40) {
+      console.log(users.name);
+  }
+
+}
+);
+
+let ages = document.getElementById("young-characters-list");
+
+users.forEach(user => {
+  if (users.age < 40) {
+    const li = document.createElement("li");
+    li.textContent = user.name;
+    ages.append(li);
+  }
+
+});
+
 
 // 3. Create a reusable function that takes any array and uses logic to render a list of character names in the HTML. Use this function to populate the list with id "function-list"
 
