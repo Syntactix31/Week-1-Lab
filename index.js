@@ -27,9 +27,22 @@ const broken = [
   { id: 6, name: "", age: 67 },
 ];
 
-// Testing if it works
+//      needs fixing
+
+
+// Testing if it works (Exercise 6)
+const brokenList = document.getElementById("broken-array-list");
+const brokenErrors = document.getElementById("broken-array-errors");
+
+// namesList(broken, brokenList, brokenErrors);
+
 namesList(broken, errorHandling);
 // ageList(broken, 25);
+
+
+
+
+
 
 // 1. Print out the names of each character in the console, then render them in the HTML list with id "names-list"
 users.forEach(
@@ -78,7 +91,7 @@ function namesList(arrayName, listElement) {
 
   arrayName.forEach(object => {
     if (!object.name) {
-      let errorMessage = `Error!!!!!!! \n The object: ${JSON.stringify(object)} \n is missing a "name" property!!!!` 
+      let errorMessage = `Error!!!!!! \n The object: ${JSON.stringify(object, null, 2)} \n is missing a "name" property!!!!` 
       console.error(errorMessage); 
       const errorInfo = document.createElement("p");
       errorInfo.textContent = errorMessage;
@@ -127,12 +140,13 @@ namesList(DW, functionList);
 
 function ageList(arrayName, threshold) {
   let ageFilter = document.getElementById("age-filter-list");
+  ageFilter.innerHTML = "";
   errorElement.innerHTML = "";
 
   arrayName.forEach(object => {
     
     if (!object.name) {
-      let errorMessage = `Error!!!!!!! \n The object: ${JSON.stringify(object)} \n is missing a "name" property!!!!` 
+      let errorMessage = `Error!!!!!! \n The object: ${JSON.stringify(object, null, 2)} \n is missing a "name" property!!!!` 
       console.error(errorMessage); 
       const errorInfo = document.createElement("p");
       errorInfo.textContent = errorMessage;
